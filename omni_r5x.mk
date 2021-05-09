@@ -34,7 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31 \
     ro.separate.soft="19631"
 
-# PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-#     ro.product.device \
-#     ro.product.name \
-#     ro.build.product
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.product.model \
+    ro.build.product \
+    ro.product.device
