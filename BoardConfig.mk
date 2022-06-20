@@ -136,3 +136,7 @@ PB_DISABLE_DEFAULT_DM_VERITY := true
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
+
+# If build on minimal-manifest sources
+ALLOW_MISSING_DEPENDENCIES := true
+TARGET_SUPPORTS_64_BIT_APPS := true

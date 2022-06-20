@@ -17,17 +17,21 @@
 # Release name
 PRODUCT_RELEASE_NAME := r5x
 
-$(call inherit-product, build/target/product/embedded.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/pb/config/common.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := r5x
-PRODUCT_NAME := omni_r5x
+PRODUCT_NAME := twrp_r5x
 PRODUCT_BRAND := Realme
 PRODUCT_MODEL := Realme 5/5s/5i
 PRODUCT_MANUFACTURER := Realme
+
+TW_DEVICE_VERSION := Realme 5/5s/5i (r5x) by Takumi021
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
