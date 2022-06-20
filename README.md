@@ -1,7 +1,7 @@
-# android_device_realme_RMX1911
-For building TWRP for Realme 5
+# android_device_realme_r5x
+For building TWRP for Realme 5/5i/5s
 
-TWRP device tree for Realme 5
+TWRP device tree for Realme 5/5i/5s
 
 ## Features
 
@@ -20,31 +20,31 @@ Works:
 
 ## Compile
 
-First checkout minimal twrp with omnirom tree:
+First checkout minimal twrp with tree:
 
 ```
-repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
+repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 repo sync
 ```
 
 Then add these projects to .repo/manifest.xml:
 
 ```xml
-<project path="device/realme/RMX1991" name="dodyirawan85/android_device_realme_RMX1911" remote="github" revision="android-9.0" />
+<project path="device/realme/r5x" name="takumi021/device_realme_r5x-twrp" remote="github" revision="android-12.1" />
 ```
 
 Finally execute these:
 
 ```
 . build/envsetup.sh
-lunch omni_RMX1911-eng
-mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
+lunch twrp_r5x-eng
+make recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
 ```
 
 To test it:
 
 ```
-fastboot flash recovery out/target/product/RMX1911/recovery.img
+fastboot flash recovery out/target/product/r5x/recovery.img
 ```
 
 Then reboot to recovery
