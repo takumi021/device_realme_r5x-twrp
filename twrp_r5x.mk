@@ -33,11 +33,6 @@ PRODUCT_MANUFACTURER := Realme
 
 TW_DEVICE_VERSION := Realme 5/5s/5i (r5x) by Takumi021
 
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31 \
-    ro.separate.soft="19631"
-
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.model \
     ro.build.product \
