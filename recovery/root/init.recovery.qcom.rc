@@ -25,6 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -110,3 +112,11 @@ on property:vendor.sys.listeners.registered=true
     start keymaster-4-0
     start gatekeeper-1-0
     start servicemanager
+
+on property:prepdecrypt.vendor_mounted=1
+    insmod /v/lib/modules/aw8697.ko
+    insmod /v/lib/modules/focaltech_fts_zf.ko
+    insmod /v/lib/modules/texfat.ko
+    insmod /v/lib/modules/tntfs.ko
+
+on fs && on property:ro.boot.fastboot=1

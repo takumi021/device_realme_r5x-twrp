@@ -24,6 +24,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Inherit from device
+$(call inherit-product, device/realme/r5x/device.mk)
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := r5x
 PRODUCT_NAME := twrp_r5x
