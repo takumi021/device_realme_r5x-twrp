@@ -18,4 +18,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_r5x.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_r5x-eng
+    twrp_r5x-eng \
+    twrp_r5x-user \
+    twrp_r5x-userdebug
