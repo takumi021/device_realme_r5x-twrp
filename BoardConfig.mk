@@ -114,6 +114,34 @@ TW_INCLUDE_FBE := true
 #TW_INCLUDE_FBE_METADATA_DECRYPT := true
 #BOARD_USES_METADATA_PARTITION := true
 
+# Recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hidl.base@1.0 \
+    ashmemd \
+    ashmemd_aidl_interface-cpp \
+    libandroidicu \
+    libashmemd_client \
+    libcap \
+    libion \
+    libpcrecpp \
+    libicuuc \
+    libxml2
+
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/ashmemd
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
